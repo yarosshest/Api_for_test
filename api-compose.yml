@@ -5,15 +5,12 @@ services:
       dockerfile: "./Dockerfiles/Api_Dockerfile.yml"
     ports:
       - "60106:8031"
-#    restart: always
+    restart: always
   postgres:
     image: postgres
     environment:
       POSTGRES_DB: "api_test"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-    build:
-      context: './'
-      dockerfile: "./Dockerfiles/Db_Dockerfile.yml"
     ports:
       - "60105:5432"
