@@ -13,8 +13,6 @@ def test_read_main():
 
 
 def test_register():
-    asyncio.run(DB.dell_user("Test_log", "Test_password"))
-
     test = {
         "log": "Test_log",
         "password": "Test_password",
