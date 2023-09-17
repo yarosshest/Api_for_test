@@ -160,6 +160,12 @@ class asyncHandler:
         else:
             return False
 
+    @staticmethod
+    @Session
+    async def dell_user(session, name, password) -> bool:
+        await session.execute(delete(User).filter(and_(User.name == name, User.password == password)))
+        return True
+
 
     @staticmethod
     @Session

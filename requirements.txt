@@ -1,4 +1,6 @@
 psycopg2
+pytest
+httpx
 sqlalchemy~=2.0.8
 matplotlib~=3.7.1
 pandas~=1.5.3

@@ -1,5 +1,7 @@
+from typing import Annotated
+
 import uvicorn as uvicorn
-from fastapi import Cookie, FastAPI, Response
+from fastapi import Cookie, FastAPI, Response, Header
 from database.async_db import asyncHandler as DB
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel

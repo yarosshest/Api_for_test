@@ -1,2 +1,3 @@
-/database/parsing/KinopoiskDumb.json
 /venv/
+!/config.ini
+!/database/parsing/KinopoiskDumb.json
