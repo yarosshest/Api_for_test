@@ -32,8 +32,8 @@ def test_err_register():
         "password": "Test_password",
     }
 
-    client.get("http://localhost:8031/register", headers=test)
-    response = client.get("/register", headers=test)
+    client.get("/register", params=test)
+    response = client.get("/register", params=test)
     assert response.status_code == 405
 
     asyncio.run(DB.dell_user("Test_log", "Test_password"))
@@ -41,16 +41,15 @@ def test_err_register():
 
 def test_login():
 
-    client.get("http://localhost:8031/register", headers={"log": "Test_log", "password": "Test_password"})
-    response = client.get("/login", headers={"log": "Test_log", "password": "Test_password"})
+    client.get("/register", params={"log": "Test_log", "password": "Test_password"})
+    response = client.get("/login", params={"log": "Test_log", "password": "Test_password"})
     assert response.status_code == 200
 
     asyncio.run(DB.dell_user("Test_log", "Test_password"))
 
 
 def test_err_login():
-    asyncio.run(DB.dell_user("Test_log", "Test_password"))
-    response = client.get("/login", headers={"log": "Test_log", "password": "Test_password"})
+    response = client.get("/login", params={"log": "Test_log", "password": "Test_password"})
     assert response.status_code == 404
 
     assert response.json() == {"message": "User not found"}
